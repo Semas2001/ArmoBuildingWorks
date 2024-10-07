@@ -5,6 +5,12 @@ import { Logo } from '@/data';
 import Link from 'next/link';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { Roboto } from 'next/font/google'
+ 
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +20,7 @@ const Nav = () => {
     };
 
     return (
-        <nav className='fixed w-full h-24 shadow-xl bg-[#423e3a]'>
+        <nav className={`fixed w-full h-26 shadow-xl bg-[#423e3a] ${roboto.className}`}>
             <div className='flex justify-between items-center h-full w-full px-4 2xl:px-16'>
                 <Image
                     src={Logo[0].img}
@@ -25,7 +31,6 @@ const Nav = () => {
                     priority
                 />
                 
-                {/* Centering the TextGenerateEffect vertically and horizontally */}
                 <div className="flex-grow flex justify-center items-center h-full">
                     <TextGenerateEffect words='ARMO BUILDING WORKS' className='text-center' />
                 </div>
@@ -33,13 +38,13 @@ const Nav = () => {
                 <div>
                     <ul className='hidden sm:flex text-white'>
                         <Link href="/">
-                            <li className='ml-10 uppercase hover:border-b text-xl'>Home</li>
+                            <li className='ml-10 uppercase hover:border-b text-md lg:text-xl'>Home</li>
                         </Link>
                         <Link href="./gallery">
-                            <li className='ml-10 uppercase hover:border-b text-xl'>Gallery</li>
+                            <li className='ml-10 uppercase hover:border-b text-md lg:text-xl'>Gallery</li>
                         </Link>
                         <Link href="./contact">
-                            <li className='ml-10 uppercase hover:border-b text-xl'>Contact Us</li>
+                            <li className='ml-10 uppercase hover:border-b text-md lg:text-xl'>Contact Us</li>
                         </Link>
                     </ul>
                 </div>
